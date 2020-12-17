@@ -1,4 +1,5 @@
 /* eslint-disable strict */
+
 // Finds a total count for all the books.
 const totalBooksCount = (books) => books.length;
 
@@ -6,7 +7,7 @@ const totalBooksCount = (books) => books.length;
 const totalAccountsCount = (accounts) => accounts.length;
 
 // Finds a total count of currently borrowed books.
-const booksBorrowedCount = (books) => books.filter(book => book.borrows[0].returned === false).length;
+const booksBorrowedCount = (books) => books.filter(book => !book.borrows[0].returned).length;
 
 // Generates a list of the most common genres.
 function getMostCommonGenres(books) {
