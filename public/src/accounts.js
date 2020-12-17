@@ -4,7 +4,8 @@
 const findAccountById = (accounts, id) => accounts.find(accountID => accountID.id === id);
 
 // Sorts [accounts] alphabetically by the accounts last name.
-const sortAccountsByLastName = (accounts) => accounts.sort((accountA, accountB) => accountA.name.last.toLowerCase() > accountB.name.last.toLowerCase() ? 1 : -1);
+const sortAccountsByLastName = (accounts) => accounts.sort((accountA, accountB) => 
+  accountA.name.last.toLowerCase() > accountB.name.last.toLowerCase() ? 1 : -1);
 
 // Finds the number of times an account has borrowed from the library.
 const numberOfBorrows = (account, books) => books.reduce((acc, book) => {
@@ -15,7 +16,8 @@ const numberOfBorrows = (account, books) => books.reduce((acc, book) => {
 }, 0);
 
 // Locates all the books an account has borrowed. Uses getAuthor() function.
-const getBooksPossessedByAccount = (account, books, authors) => getAuthor(authors, books).filter((book) => book.borrows.find(borrow => borrow.id === account.id && borrow.returned === false));
+const getBooksPossessedByAccount = (account, books, authors) => getAuthor(authors, books).filter((book) => 
+  book.borrows.find(borrow => borrow.id === account.id && !borrow.returned));
 
 // Helper Function: getAuthor() returns a copy of the [books] and adds the authors first and last name.
 function getAuthor(authors, books) {
