@@ -25,9 +25,11 @@ function getAuthor(authors, books) {
   // Cycles through the [authors] and [books].
   authors.reduce((authorAcc, author) => {
     const addAuthor = books.reduce((bookAcc, book) => {
+      const { authorId } = book;
+      const { id } = author;
 
       // Checks if any of the author id's match the book's author id. Adds the author to a new book object and pushes it to the [result].
-      if (book.authorId === author.id) {
+      if (authorId === id) {
         book.author = author;
         result.push(book);
         bookAcc++;
