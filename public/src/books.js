@@ -17,20 +17,23 @@ function getBorrowersForBook(book, accounts) {
   let result = [];
 
   // Looping through the [accounts].
-  accounts.reduce((accountAcc, account) => {
+  accounts.reduce((accountAccumulator, account) => {
 
     // Looping through the [books].
-    const borrower = book.borrows.reduce((borrowAcc, borrow) => {
+    const count = book.borrows.reduce((borrowAccumulator, borrower) => {
+
+      // Destructuring {account} for 'id' variable.
+      const { id } = account;
 
       // pushing borrower account when matched to the borrow history.
-      if (account.id === borrow.id) {
-        account.returned = borrow.returned;
+      if (id === borrower.id) {
+        account.returned = borrower.returned;
         result.push(account);
-        return borrowAcc++;
+        return borrowAccumulator++;
       }
-      return borrowAcc;
+      return borrowAccumulator;
     }, 0);
-    return accountAcc + borrower;
+    return accountAccumulator + count;
   }, 0);
 
   // returns [result] sorted placing the current borrower at the top of the list. Limit borrow history to 10.
