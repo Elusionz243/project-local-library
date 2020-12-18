@@ -16,11 +16,11 @@ const numberOfBorrows = (account, books) => books.reduce((acc, book) => {
 }, 0);
 
 // Locates all the books an account has borrowed. Uses getAuthor() function.
-const getBooksPossessedByAccount = (account, books, authors) => getAuthor(authors, books).filter((book) => 
+const getBooksPossessedByAccount = (account, books, authors) => addAuthorToBooks(authors, books).filter((book) => 
   book.borrows.find(borrow => borrow.id === account.id && !borrow.returned));
 
-// Helper Function: getAuthor() returns a copy of the [books] and adds the authors first and last name.
-function getAuthor(authors, books) {
+// HELPER FUNCTION!!!!!!!: getAuthor() returns a copy of the [books] and adds the authors first and last name.
+function addAuthorToBooks(authors, books) {
   let result = [];
   // Cycles through the [authors] and [books].
   authors.reduce((authorAcc, author) => {
