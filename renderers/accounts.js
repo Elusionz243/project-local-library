@@ -1,3 +1,7 @@
+/* eslint-disable quotes */
+/* eslint-disable strict */
+/* eslint-disable no-console */
+
 // Templates
 function accountLinkTemplate(account) {
   return `
@@ -36,7 +40,7 @@ function accountDetailsTemplate(account, borrowCount = 0) {
   `;
 }
 
-function getBooksPossessedByAccountTemplate(books) {
+function booksInPossessionTemplate(books) {
   let lis = books
     .map(({ title, author }) => {
       const fullName = `${author.name.first} ${author.name.last}`;
@@ -84,8 +88,8 @@ function renderAccountSelection() {
       const borrowCount = numberOfBorrows(account, books);
       selection.innerHTML = accountDetailsTemplate(account, borrowCount);
 
-      const inPossession = getBooksPossessedByAccount(account, books, authors);
-      selection.innerHTML += getBooksPossessedByAccountTemplate(inPossession);
+      const inPossession = booksInPossession(account, books, authors);
+      selection.innerHTML += booksInPossessionTemplate(inPossession);
     });
   });
 }

@@ -1,3 +1,7 @@
+/* eslint-disable quotes */
+/* eslint-disable strict */
+/* eslint-disable no-console */
+
 const accounts = [
   {
     id: "5f446f2ecfaf0310387c9603",

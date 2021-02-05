@@ -1,3 +1,7 @@
+/* eslint-disable quotes */
+/* eslint-disable strict */
+/* eslint-disable no-console */
+
 // Templates
 function returnedBadgeTemplate(returned) {
   return `
